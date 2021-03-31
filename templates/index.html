@@ -1,0 +1,67 @@
+<!-- /templates/index.html -->
+<!DOCTYPE html>
+<html>
+    <style>
+        body {text-align: center;}
+        table { margin-left: auto; margin-right: auto;}
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+            overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-wp8o{border-color:#000000;text-align:center;vertical-align:top}
+    </style>
+    
+    <body>
+        <br>
+        <h2>Curabit's VR based Exposure Therapy</h2>
+        <h1>Social Anxiety Disorder: Public Park with Friends</h1>
+        <br>
+        <h3>Control Panel</h3>
+        Current Scene:<b> {{scene_name}}</b>
+        <br>
+        <br>
+        <form method="POST" action="/index">
+            <table class="tg">
+                <thead>
+                  <tr>
+                    <th class="tg-wp8o" colspan="4">
+                        <button type="submit" name="submit_1" value="submit_1">Scene 1</button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-wp8o" colspan="2">
+                        <button type="submit" name="submit_1a" value="submit_1a">Scene 1A</button>
+                    </td>
+                    <td class="tg-wp8o" colspan="2">
+                        <button type="submit" name="submit_1b" value="submit_1b">Scene 1B</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-wp8o">
+                        <button type="submit" name="submit_1a_1" value="submit_1a_1">Scene 1A_1</button>
+                    </td>
+                    <td class="tg-wp8o">
+                        <button type="submit" name="submit_1a_2" value="submit_1a_2">Scene 1A_2</button>
+                    </td>
+                    <td class="tg-wp8o">
+                        <button type="submit" name="submit_1b_1" value="submit_1b_1">Scene 1B_1</button>
+                    </td>
+                    <td class="tg-wp8o">
+                        <button type="submit" name="submit_1b_2" value="submit_1b_2">Scene 1B_2</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="tg-wp8o" colspan="4">
+                        <button type="submit" name="submit_clear" value="submit_clear">Stop Simulation</button>
+                    </th>
+                  </tr>
+                </tbody>
+                </table>
+        </form>
+        <br>
+        <br>
+    </body>
+</html>
