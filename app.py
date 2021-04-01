@@ -30,4 +30,6 @@ def sim_on():
     elif request.form.get("submit_clear"):
         scene = "No Set Scene"
     return render_template('index.html', scene_name=scene)
-app.run(debug = True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
