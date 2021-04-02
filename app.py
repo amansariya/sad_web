@@ -1,34 +1,35 @@
 # app.py
 from flask import Flask, render_template, request, Markup, jsonify
-from datetime import datetime, timezone
+from datetime import datetime, timedelta
+
+ist = timedelta(hours=5, minutes=30)
 
 scene = "No Set Scene"
 log = ""
 req_log = ""
 app = Flask(__name__)
 
-def utc_to_local(utc_dt):
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
-
 def add_log(msg):
     global log
-
+    global ist
     # datetime object containing current date and time
     now = datetime.now()
-    now.replace(tzinfo=timezone.utc).astimezone(tz='IST')
+    now = now+ist
 
     # dd/mm/YY H:M:S
-    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S IST")
 
     log = log + str("<br>"+dt_string+": "+msg)
 
 def add_req(page,req_h,req_args=None, req_form=None, req_json=None):
     global req_log
+    global ist
     # datetime object containing current date and time
     now = datetime.now()
+    now = now+ist
 
     # dd/mm/YY H:M:S
-    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S IST")
     req_log = req_log + str("<br>"+dt_string+" @"+page)
     if req_h!=None:
         req_log = req_log + str("<br>header: "+str(req_h))
