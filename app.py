@@ -50,31 +50,31 @@ def home():
     # add_req('/',str(request.headers),str(request.args),str(request.form),str(request.json))
     if request.form.get("submit_1"):
         scene = "Scene 1"
-        scene_id = 1
+        scene_id = 0
         add_log("Changed to Scene 1")
     elif request.form.get("submit_1a"):
         scene = "Scene 1A"
-        scene_id = 11
+        scene_id = 1
         add_log("Changed to Scene 1A")
     elif request.form.get("submit_1b"):
         scene = "Scene 1B"
-        scene_id = 12
+        scene_id = 2
         add_log("Changed to Scene 1B")
     elif request.form.get("submit_1a_1"):
         scene = "Scene 1A_1"
-        scene_id = 111
+        scene_id = 3
         add_log("Changed to Scene 1A_1")
     elif request.form.get("submit_1a_2"):
         scene = "Scene 1A_2"
-        scene_id = 112
+        scene_id = 4
         add_log("Changed to Scene 1A_2")
     elif request.form.get("submit_1b_1"):
         scene = "Scene 1B_1"
-        scene_id = 121
+        scene_id = 5
         add_log("Changed to Scene 1B_1")
     elif request.form.get("submit_1b_2"):
         scene = "Scene 1B_2"
-        scene_id = 122
+        scene_id = 6
         add_log("Changed to Scene 1B_2")
     elif request.form.get("submit_clear"):
         scene = "No Set Scene"
