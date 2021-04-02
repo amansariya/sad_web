@@ -110,6 +110,7 @@ def req_point():
 # get-scene route
 @app.route("/get-scene", methods=['GET','POST'])
 def get_scene():
+    global scene_id
     return jsonify(scene_id=str(scene_id))
 
 if __name__ == '__main__':
