@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 ist = timedelta(hours=5, minutes=30)
 
-scene = "No Set Scene"
+scene = "Sunrise-Sunset"
 scene_id = 0
 update_freq = 540
 log = ""
@@ -52,35 +52,35 @@ def home():
         # scene = str(request.form)
     # add_req('/',str(request.headers),str(request.args),str(request.form),str(request.json))
     if request.form.get("submit_1"):
-        scene = "Scene 1"
+        scene = "Sunset-Sunrise"
         scene_id = 0
-        add_log("Changed to Scene 1")
+        add_log("Changed to Sunset-Sunrise")
     elif request.form.get("submit_1a"):
-        scene = "Scene 1A"
+        scene = "Waterfall in Cave"
         scene_id = 1
-        add_log("Changed to Scene 1A")
+        add_log("Changed to Waterfall in Cave")
     elif request.form.get("submit_1b"):
-        scene = "Scene 1B"
+        scene = "Beach"
         scene_id = 2
-        add_log("Changed to Scene 1B")
+        add_log("Changed to Beach")
     elif request.form.get("submit_1a_1"):
-        scene = "Scene 1A_1"
+        scene = "London Tower Bridge"
         scene_id = 3
-        add_log("Changed to Scene 1A_1")
+        add_log("Changed to London Tower Bridge")
     elif request.form.get("submit_1a_2"):
-        scene = "Scene 1A_2"
+        scene = "Monastery"
         scene_id = 4
-        add_log("Changed to Scene 1A_2")
+        add_log("Changed to Monastery")
     elif request.form.get("submit_1b_1"):
-        scene = "Scene 1B_1"
+        scene = "London Park"
         scene_id = 5
-        add_log("Changed to Scene 1B_1")
+        add_log("Changed to London Park")
     elif request.form.get("submit_1b_2"):
-        scene = "Scene 1B_2"
+        scene = "Temple"
         scene_id = 6
-        add_log("Changed to Scene 1B_2")
+        add_log("Changed to Temple")
     elif request.form.get("submit_clear"):
-        scene = "No Set Scene"
+        scene = "Sunrise-Sunset"
         add_log("Reset scene to blank")
         scene_id = 0
     elif request.form.get("freq"):
