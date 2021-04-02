@@ -46,6 +46,7 @@ def add_req(page,req_h,req_args=None, req_form=None, req_json=None):
 @app.route("/", methods=['GET','POST'])
 def home():
     global scene
+    global scene_id
     # scene = str(request.form)
     # add_req('/',str(request.headers),str(request.args),str(request.form),str(request.json))
     if request.form.get("submit_1"):
