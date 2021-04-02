@@ -6,6 +6,7 @@ ist = timedelta(hours=5, minutes=30)
 
 scene = "No Set Scene"
 scene_id = 0
+update_freq = 540
 log = ""
 req_log = ""
 app = Flask(__name__)
@@ -46,6 +47,7 @@ def add_req(page,req_h,req_args=None, req_form=None, req_json=None):
 @app.route("/", methods=['GET','POST'])
 def home():
     global scene
+    global update_freq
     # scene = str(request.form)
     # add_req('/',str(request.headers),str(request.args),str(request.form),str(request.json))
     if request.form.get("submit_1"):
@@ -80,7 +82,10 @@ def home():
         scene = "No Set Scene"
         add_log("Reset scene to blank")
         scene_id = 0
-    return render_template('index.html', scene_name=scene)
+    elif request.form.get("freq"):
+        update_freq = int(request.form.get("freq"))
+        add_log(str("Updated Scene Change Frequency to "+str(update_freq)))
+    return render_template('index.html', scene_name=scene, freq=update_freq)
 
 # log route
 @app.route("/log", methods=['GET','POST'])
@@ -110,6 +115,11 @@ def req_point():
 @app.route("/get-scene", methods=['GET','POST'])
 def get_scene():
     return jsonify(scene_id=str(scene_id))
+
+# get-scene route
+@app.route("/get-freq", methods=['GET','POST'])
+def get_scene():
+    return jsonify(freq=str(update_freq))
 
 if __name__ == '__main__':
     app.run(debug=True)

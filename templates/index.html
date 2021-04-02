@@ -1,28 +1,57 @@
 <!-- /templates/index.html -->
 <!DOCTYPE html>
 <html>
-    <style>
-        body {text-align: center;}
-        table { margin-left: auto; margin-right: auto;}
-        .tg  {border-collapse:collapse;border-spacing:0;}
-        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-            overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg .tg-wp8o{border-color:#000000;text-align:center;vertical-align:top}
-    </style>
     <head>
         <title>Curabit's Social Anxiety Disorder</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">  
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
     </head>
+    <style>
+        body {
+            background-color: #3D9BE9;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: whitesmoke;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: white;
+        }
+        h3, p{
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+        .controls{
+            color: beige;
+        }
+        .tg  {
+            border-collapse:collapse;border-spacing:0;
+            margin-left: auto;
+            margin-right: auto;}
+        .tg td{border-color:transparent;border-width:1px;font-family:'Roboto', sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:transparent;border-width:1px;font-family:'Roboto', sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-wp8o{border-color:#000000;text-align:center;vertical-align:top}
+        button {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
     <body>
-        <br>
         <h2>Curabit's VR based Exposure Therapy</h2>
         <h1>Social Anxiety Disorder: Public Park with Friends</h1>
-        <br>
-        <h3>Control Panel</h3>
-        Current Scene:<b> {{scene_name}}</b>
-        <br>
-        <br>
+        <h3>Current Scene:<b> {{scene_name}}</b></h3>
+        <h3>Scene Update Frequency:<b> {{freq}}</b></h3>
+        <!-- <br> -->
+        <h4>Control Panel</h4>
+        <p class="controls">Scene Controls</p>
         <form method="POST" action="/">
             <table class="tg">
                 <thead>
@@ -64,6 +93,15 @@
                 </table>
         </form>
         <br>
+        <p class='controls'>Scene Update Frequency Controls</p>
+        <form method="POST" action="/">
+            <label>Frequency: </label>
+            <input type="text" name="freq">
+            <br><br>
+            <button type="submit" name="change_freq" value="change_freq">Change Update Frequency</button>
+            <br><br>
+            Changes in Scene Update Frequency will take effect after 5 minutes and when the app restarts.
+        </form>
         <br>
     </body>
 </html>
