@@ -111,6 +111,7 @@ def req_point():
 @app.route("/get-scene", methods=['GET','POST'])
 def get_scene():
     global scene_id
+    add_req('/get-scene',str(request.headers),str(request.args),str(request.form),str(request.json))
     return jsonify(scene_id=str(scene_id))
 
 if __name__ == '__main__':
