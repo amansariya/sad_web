@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 ist = timedelta(hours=5, minutes=30)
 
 scene = "No Set Scene"
+scene_id = 0
 log = ""
 req_log = ""
 app = Flask(__name__)
@@ -49,28 +50,36 @@ def home():
     # add_req('/',str(request.headers),str(request.args),str(request.form),str(request.json))
     if request.form.get("submit_1"):
         scene = "Scene 1"
+        scene_id = 1
         add_log("Changed to Scene 1")
     elif request.form.get("submit_1a"):
         scene = "Scene 1A"
+        scene_id = 11
         add_log("Changed to Scene 1A")
     elif request.form.get("submit_1b"):
         scene = "Scene 1B"
+        scene_id = 12
         add_log("Changed to Scene 1B")
     elif request.form.get("submit_1a_1"):
         scene = "Scene 1A_1"
+        scene_id = 111
         add_log("Changed to Scene 1A_1")
     elif request.form.get("submit_1a_2"):
         scene = "Scene 1A_2"
+        scene_id = 112
         add_log("Changed to Scene 1A_2")
     elif request.form.get("submit_1b_1"):
         scene = "Scene 1B_1"
+        scene_id = 121
         add_log("Changed to Scene 1B_1")
     elif request.form.get("submit_1b_2"):
         scene = "Scene 1B_2"
+        scene_id = 122
         add_log("Changed to Scene 1B_2")
     elif request.form.get("submit_clear"):
         scene = "No Set Scene"
         add_log("Reset scene to blank")
+        scene_id = 0
     return render_template('index.html', scene_name=scene)
 
 # log route
@@ -90,12 +99,17 @@ def log_req():
     return render_template('requests_log.html', scene_name=scene, log_report=log_output)
 
 # requests log route
-@app.route("/req_point", methods=['GET','POST'])
+@app.route("/req_log", methods=['GET','POST'])
 def req_point():
     global req_log
-    add_req('/req_point',str(request.headers),str(request.args),str(request.form),str(request.json))
+    add_req('/req_log',str(request.headers),str(request.args),str(request.form),str(request.json))
     log_output = Markup(req_log)
     return render_template('req_point.html')
+
+# get-scene route
+@app.route("/get-scene", methods=['GET','POST'])
+def get_scene():
+    return jsonify(scene_id=str(scene_id))
 
 if __name__ == '__main__':
     app.run(debug=True)
