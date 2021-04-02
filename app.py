@@ -7,11 +7,15 @@ log = ""
 req_log = ""
 app = Flask(__name__)
 
+def utc_to_local(utc_dt):
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
+
 def add_log(msg):
     global log
 
     # datetime object containing current date and time
     now = datetime.now()
+    now.replace(tzinfo=timezone.utc).astimezone(tz='IST')
 
     # dd/mm/YY H:M:S
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
