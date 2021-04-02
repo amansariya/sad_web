@@ -24,17 +24,27 @@
             font-weight: 600;
             color: white;
         }
-        h3, p{
+        p{
             font-family: 'Roboto', sans-serif;
-            color: white;
+            color:white;
+        }
+        h3{
+            font-family: 'Roboto', sans-serif;
+            color: black;
         }
         .controls{
             color: beige;
         }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .desct{
+            background-color: white;
+        }
         .tg  {
             border-collapse:collapse;border-spacing:0;
-            margin-left: auto;
-            margin-right: auto;}
+        }
         .tg td{border-color:transparent;border-width:1px;font-family:'Roboto', sans-serif;font-size:14px;
         overflow:hidden;padding:10px 5px;word-break:normal;}
         .tg th{border-color:transparent;border-width:1px;font-family:'Roboto', sans-serif;font-size:14px;
@@ -47,9 +57,8 @@
     <body>
         <h2>Curabit's VR based Exposure Therapy</h2>
         <h1>Social Anxiety Disorder: Public Park with Friends</h1>
-        <h3>Current Scene:<b> {{scene_name}}</b></h3>
+        <h3>Current Scene: <b>{{scene_name}}</b></h3>
         <h3>Scene Update Frequency:<b> {{freq}}</b></h3>
-        <!-- <br> -->
         <h4>Control Panel</h4>
         <p class="controls">Scene Controls</p>
         <form method="POST" action="/">
@@ -92,7 +101,6 @@
                 </tbody>
                 </table>
         </form>
-        <br>
         <p class='controls'>Scene Update Frequency Controls</p>
         <form method="POST" action="/">
             <label>Frequency: </label>
