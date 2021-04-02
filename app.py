@@ -85,7 +85,7 @@ def log_req():
     return render_template('requests_log.html', scene_name=scene, log_report=log_output)
 
 # requests log route
-@app.route("/req_bouncer", methods=['GET','POST'])
+@app.route("/req_point", methods=['GET','POST'])
 def req_point():
     global req_log
     add_req('/req_point',str(request.headers),str(request.args),str(request.form),str(request.json))
